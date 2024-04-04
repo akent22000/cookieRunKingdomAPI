@@ -37,14 +37,14 @@ body {
   margin: 0;
 }
 
-.animals {
+.cookies {
   font-size: 1.2em;
   padding: 10px;
   border-bottom: 1px solid #ccc;
   animation: fadeIn 0.5s ease-in-out;
 }
 
-.animals:last-child {
+.cookies:last-child {
   border-bottom: none;
 }
 

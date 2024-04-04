@@ -57,9 +57,11 @@ async function renderData() {
         const toppings = document.createElement('p');
         toppings.textContent = cookie.toppings;
 
-        // const toppings = document.createElement('p');
-        // toppings.textContent = cookie.toppings;
+        const image = new Image();
+        image.src = cookie.image;
 
+
+        card.appendChild(image);
         card.appendChild(name);
         card.appendChild(rarity);
         card.appendChild(type);
