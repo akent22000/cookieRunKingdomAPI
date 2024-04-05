@@ -9,6 +9,27 @@ body {
   animation: gradient 15s ease infinite;
 }
 
+
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background-color: coral;
+  Color: white;
+}
+
+th,
+td {
+  width: 150px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 5px
+}
+
+
+
 * {
   margin: 0;
   padding: 0;

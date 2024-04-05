@@ -1,127 +1,72 @@
 
-// Function to fetch data from the API
-async function fetchData() {
-    try {
-        const response = await fetch('http://localhost:3000/cookies');
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching data:', error);
+document.addEventListener('DOMContentLoaded', () => getCookies());
+
+
+function filterCookies() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];   // use 1 instead of 0
+        if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
     }
 }
-fetchData();
-
-// Function to render data in cards
-async function renderData() {
-    const container = document.querySelector('.container');
-    const data = await fetchData();
-
-    if (!data) {
-        return;
-    }
 
 
+function getCookies() {
+    fetch('http://localhost:3000/cookies')
+        .then((res) => res.json())
+        .then((data) => {
 
-    data.forEach(cookie => {
-
-        const card = document.createElement('div');
-        card.classList.add('card');
-
-        const name = document.createElement('h2');
-        const node0 = document.createTextNode('Name:' + ' ' + cookie.character);
-
-        const rarity = document.createElement('p');
-        const node1 = document.createTextNode('Rarity:' + ' ' + cookie.rarity);
-
-        const type = document.createElement('p');
-        const node2 = document.createTextNode('Type:' + ' ' + cookie.type);
-
-        const position = document.createElement('p');
-        const node3 = document.createTextNode('Position:' + ' ' + cookie.position);
-
-        const toppings = document.createElement('p');
-        const node4 = document.createTextNode('Best Toppings:' + ' ' + cookie.toppings);
-
-        const image = new Image();
-        image.src = cookie.image;
-        image.classList.add('image');
-
-        name.appendChild(node0);
-        rarity.appendChild(node1);
-        type.appendChild(node2);
-        position.appendChild(node3);
-        toppings.appendChild(node4);
-
-        card.appendChild(image);
-        card.appendChild(name);
-        card.appendChild(rarity);
-        card.appendChild(type);
-        card.appendChild(position);
-        card.appendChild(toppings);
-        container.appendChild(card);
+            let output =
+                '<table id="myTable"><tr><th>Avatar</th><th>Character</th><th>Rarity</th><th>Type</th><th>Position</th><th>Best Toppings</th></tr>';
+            data.forEach(function (data) {
 
 
-    });
+                output +=
+                    `
+             <tr class='tr'>
+             <td><img src="${data.image}" id="image" class="image"</img></td>
+                 <td>${data.character}</td>
+                 <td>${data.rarity}</td>
+                 <td>${data.type}</td>
+                 <td>${data.position}</td>
+                 <td>${data.toppings}</td>
+
+             </tr>
+         `;
+            });
+
+            output += '</table>'
+            document.getElementById('output').innerHTML = output;
+        })
+};
 
 
-    const result = Object.values(data).filter(cookie => cookie.rarity === 'Common')
-    console.log(result)
+const userNameInput = document.querySelector("#myInput");
 
-}
-// renderData();
+userNameInput.addEventListener("keyup", (event) => {
+    const inputValue = event.target.value;
+    filterCookies();
+});
 
-// Call the renderData function to display data
 
-document.getElementById("happyBtn").addEventListener("click", search_cookies);
 
-function search_cookies() {
+document.getElementById("image").addEventListener("click", happyFunction);
 
-    renderData();
+function happyFunction() {
+    endPoint = 'happiness';
+
+    fetchQuoteOption();
     let element = document.getElementById("card");
     element.classList.toggle("mystyle");
 
 };
-
-
-
-// function search_cookies() {
-//     const data = fetchData();
-
-//     const result = Object.values(data).filter(cookie => cookie.rarity === 'Common')
-//     console.log(result)
-//     renderData();
-// }
-
-
-// JavaScript code
-
-// function search_cookies() {
-//     let input = document.getElementById('searchbar').value
-//     input = input.toLowerCase();
-//     let x = document.getElementsByClassName('cookiesSearch');
-
-//     const data = fetchData();
-
-//     for (i = 0; i < x.length; i++) {
-//         if (!x[i].innerHTML.toLowerCase().includes(input)) {
-//             x[i].style.display = "none";
-//             //display cooresponding card 
-//             console.log(data.rarity);
-//         }
-//         else {
-//             x[i].style.display = "list-item";
-//         }
-//     }
-// }
-
-
-
-
-
-
-// const cookies = cookies.map(data => ({
-//     character: data.character,
-//     position: data.position,
-// }));
-
-// console.log(character);
