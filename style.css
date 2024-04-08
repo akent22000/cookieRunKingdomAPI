@@ -9,10 +9,6 @@ body {
   animation: gradient 15s ease infinite;
 }
 
-.acitve {
-
-  visibility: hidden;
-}
 
 table {
   border-collapse: collapse;

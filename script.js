@@ -9,7 +9,7 @@ async function filterCookies() {
     table = document.getElementById("myTable");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[2];   // use 1 instead of 0
+        td = tr[i].getElementsByTagName("td")[1];   // use 1 instead of 0
         if (td) {
             if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
@@ -36,8 +36,8 @@ async function getCookies() {
                 const card = document.createElement('tr');
                 card.classList.add('tr');
 
-                const image = document.createElement('td');
-                image.textContent = data.image;
+                // const image = document.createElement('td');
+                // image.textContent = data.image;
 
                 const name = document.createElement('td');
                 name.textContent = data.character;
@@ -47,59 +47,32 @@ async function getCookies() {
                 const rarity = document.createElement('td');
                 rarity.textContent = data.rarity;
 
-                //         output +=
-                //             `
-                //      <tr class='tr'>
-                //      <td><img src="${data.image}" id="image" class="image"</img></td>
-                //          <td class="hover">${data.character}</td>
-                //          <td>${data.rarity}</td>
-                //          <td>${data.type}</td>
-                //          <td>${data.position}</td>
-                //          <td>${data.toppings}</td>
+                const type = document.createElement('td');
+                type.textContent = data.type;
 
-                //      </tr>
-                //  `;
-                card.appendChild(image);
+                const position = document.createElement('td');
+                position.textContent = data.position;
+
+                const toppings = document.createElement('td');
+                toppings.textContent = data.toppings;
 
                 card.appendChild(name);
                 card.appendChild(rarity);
+                card.appendChild(type);
+                card.appendChild(position);
+                card.appendChild(toppings);
                 container.appendChild(card);
 
-
                 name.addEventListener('mouseover', (event) => {
-                    // event.target.style.color = 'red';
-                    document.getElementById('popup').innerHTML = data.type;
+                    document.getElementById('popup').innerHTML = `<img src='${data.image}' class='image' />`;
                 });
 
                 name.addEventListener('mouseout', (event) => {
                     document.getElementById('popup').innerHTML = "";
                 });
 
-
             });
         });
-
-
-
-    // let divs = document.getElementsByClassName('hover')[0];
-    // divs.style.color = 'red';
-
-
-    // let names = document.getElementsByClassName('hover')[2];
-    // names.style.color = 'red';
-
-    // document.getElementsByClassName('hover')[0].click = function () {
-    //     this.style.color = 'red';
-    // };
-
-    // output += '</table>'
-    // document.getElementById('output').innerHTML = output;
-
-
-
-    // console.log(divs)
-
-
 };
 
 
@@ -109,41 +82,3 @@ userNameInput.addEventListener("keyup", (event) => {
     const inputValue = event.target.value;
     filterCookies();
 });
-
-
-
-
-// const test = document.getElementsByClassName("hover");
-
-// test.addEventListener("click", (event) => {
-//     test.style.color = 'red';
-
-// });
-
-
-// document.getElementById("image").addEventListener("click", happyFunction);
-
-// function happyFunction() {
-//     endPoint = 'happiness';
-
-//     fetchQuoteOption();
-//     let element = document.getElementById("card");
-//     element.classList.toggle("mystyle");
-
-// };
-
-
-// const container = document.querySelector('#alert-container');
-
-// // Click handler for entire DIV container
-// container.addEventListener('click', function (e) {
-//     // But only alert for elements that have an alert-button class
-//     if (e.target.classList.contains('alert-button')) {
-//         alert(e.target.innerHTML);
-//     }
-// });
-
-// const newBtn = document.createElement('button');
-// newBtn.classList.add('alert-button');
-// newBtn.innerHTML = 'Button 3';
-// container.append(newBtn);
