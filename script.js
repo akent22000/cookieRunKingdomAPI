@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', () => getCookies());
 
 
 async function filterCookies() {
-    var input, filter, table, tr, td, i;
+    let input, filter, table, tr, td, i;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("myTable");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];   // use 1 instead of 0
+        td = tr[i].getElementsByTagName("td")[1];
         if (td) {
             if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
@@ -25,10 +25,6 @@ async function getCookies() {
     fetch('http://localhost:3000/cookies')
         .then((res) => res.json())
         .then((data) => {
-
-
-            // let output =
-            //     '<table id="myTable"><tr><th>Avatar</th><th>Character</th><th>Rarity</th><th>Type</th><th>Position</th><th>Best Toppings</th></tr>';
 
             const container = document.querySelector('#myTable');
 
@@ -64,7 +60,7 @@ async function getCookies() {
                 container.appendChild(card);
 
                 name.addEventListener('mouseover', (event) => {
-                    document.getElementById('popup').innerHTML = `<img src='${data.image}' class='image' />`;
+                    document.getElementById('popup').innerHTML = `<img src='${data.image}' class='image imgWrap' /> ${data.character} `;
                 });
 
                 name.addEventListener('mouseout', (event) => {

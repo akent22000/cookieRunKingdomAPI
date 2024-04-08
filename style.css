@@ -4,18 +4,55 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  background-color: #BFA490;
+  font-family: "houschka-rounded", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+.logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: inherit;
+
+}
+
+.imgWrap {
+  position: -webkit-sticky;
+  /* Safari */
+  position: sticky;
+  top: 0;
+  /* position: relative; */
+  height: 200px;
+  width: 200px;
+  background-color: #fff;
+  border-radius: 25px;
+
+}
+
+
+#getCookies {
+  margin-top: 50px;
+}
+
+#myInput {
+  margin-bottom: 25px;
+  width: 200px;
+  height: 30px;
+
 }
 
 
 table {
   border-collapse: collapse;
+  background-color: #e3d3c7;
 }
 
 th {
-  background-color: coral;
+  background-color: #412f27;
   Color: white;
 }
 
@@ -24,15 +61,7 @@ td {
   width: 150px;
   text-align: center;
   border: 1px solid black;
-  padding: 5px
-}
-
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  padding: 25px
 }
 
 .image {
@@ -78,16 +107,4 @@ td {
 
 .cookies:last-child {
   border-bottom: none;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
