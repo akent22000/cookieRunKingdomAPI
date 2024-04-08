@@ -67,31 +67,16 @@ async function getCookies() {
 
 
                 name.addEventListener('mouseover', (event) => {
-
-                    name.querySelectorAll('hover').forEach(element => {
-                        // element.style.color = 'red';
-                    })
-                    event.target.style.color = 'red';
-
+                    // event.target.style.color = 'red';
+                    document.getElementById('popup').innerHTML = data.type;
                 });
 
                 name.addEventListener('mouseout', (event) => {
-
-                    name.querySelectorAll('hover').forEach(element => {
-                        // element.style.color = 'red';
-                    })
-                    event.target.style.visibility = "hidden";
-                    document.getElementById('output').innerHTML = "bllllaaaaahhhhh";
-
-
+                    document.getElementById('popup').innerHTML = "";
                 });
 
 
             });
-
-
-
-
         });
 
 
