@@ -12,31 +12,51 @@
 
 <body>
 
+  <table id="myTable">
+    <tr>
+      <th>Avatar</th>
+      <th>Character</th>
+      <th>Rarity</th>
+      <th>Type</th>
+      <th>Position</th>
+      <th>Best Toppings</th>
+    </tr>
+
+
+    <div id="alert-container">
+      <button class="alert-button">Button 1</button>
+      <button class="alert-button">Button 2</button>
+    </div>
+
+    <div class="container">
+
+      <p id="icon">Text to hover over</p>
+      <p id="info" style="display: none">Text to popup</p>
+
+      <button id="randomBtn" type="button">Click Me!</button>
 
 
 
+      <div class="row">
+        <div class="col l3" id="filternav">
+          <a class="black-text">
+            <h2 id="getUsers">Filter Cookies</h2>
+          </a>
+        </div>
 
 
-  <div class="container">
-
-    <div class="row">
-      <div class="col l3" id="filternav">
-        <a class="black-text">
-          <h2 id="getUsers">Filter Cookies</h2>
-        </a>
-      </div>
-
-      <input type="text" id="myInput" placeholder="Search by Rarity" title="Type in a name">
+        <div id="testing"></div>
+        <input type="text" id="myInput" placeholder="Search by Rarity" title="Type in a name">
 
 
-      <div class="col l9" id="output">
+        <div class="col l9" id="output">
 
 
 
-        <h1 class="center-align">No Data</h1>
+          <h1 class="center-align">No Data</h1>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
